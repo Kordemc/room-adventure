@@ -114,6 +114,35 @@ class Game(Frame):
 
 	# creates the rooms
 	def createRooms(self):
+		r1 = Room("The Body, elven by the looks of it, head caved in, hard to identify, I take a drag of a cigar as the smoke wisps through my eye sockets. the body was let out in the open, whoever did this wanted people to see. \n theres a necklace on the body of a gold symbol of two m's, Malone Family symbol, only higher ups get those. he wont take too kindly to someone killig one of his 'sons'. and a bloody pipe next to him. Theres a fire escape to the west ther car is back south and theres an open alley ahead of me.", "thebody.gif")
+		r2 = Room("The car, Ulysses is next to the crusier, scanning the area trying to make sure everything's clear ", "thecar.gif")
+		r3 = Room("The Fire Escape, theres a red stain and i got a weird vibe, magic was used around here, residue from magic usage, i should check that out. ever since i died i started to feel arcane disurbances but Ulysess probably felt it before we got here.", "thefireescape.gif")
+		r4 = Room("The Alley, nothin' too much to see here, except for a mark on the ground. Looks like maybe a footprint. another drag of the cigar and a puff of smoke exits through my teeth.", "thealley.gif")
+		r1.addExit("west", r3)
+		r1.addExit("south", r2)
+		r1.addExit("north", r4)
+		r1.addGrabbable("necklace")
+		# item
+		r1.addItem("pipe", "It seems too easy for it to be the murder weapon, but again this was a display so i can't count it out. i may not have finger prints but I'll leave it here. Don't want another lecture from Pyrestone")
+		r1.addItem("body", "Judging by the ears, and his usual outfit its Delsaran Smith, A malone family Lieutenant, they aren't all bad, and I'd say he was kindest out of the ones ive met. He didn't deserve this...")
+		r2.addExit("north", r1)
+		r2.addExit("south", None)
+		#items room 2
+		r2.addItem("ulysses", "Ulyesses Steele, a Human Male, standing at average height, light skin with markingings that go from his fingers down to his forearms. Hes wearing glasses that he hasn't needed for years after...maybe not the time to get into that. We go way back, and he's the best Sorcerer I know.")
+		r2.addItem("car", "Our newest police crusier after the last one got zapped by a wizard that lost his marbles. Ulysses seemed to noticed my attention and says: 'you trying to go? got everything you needed? you can take the keys if you want and we can head out' He holds the car keys out to me")
+		#grabbles in room 2
+		r2.addGrabbable("keys")
+		#room 3 exits
+		r3.addExit("east",r1)
+		# room 3 items
+		r3.addItem("residue", "Arcane residue, by the looks of it conjuration...worst case its a teleportation spell, which would mean we're dealing with a powerful caster, teleportaion isn't easy.")
+		r3.addItem("stain", "Blood from up here? guess they moved the body through here, unless the blood isn't the victum's....ill leave a not for Forensics")
+		#room 4 exits
+		r4.addExit("south", r1)
+		#room 4 items
+		r4.addItem("marks", "Drag marks? no looks like a footprint or somthing. left by an old shoe, gotta leave a note for this too before Forensics gets here")
+		#setting room 1 as the current room
+		currentRoom = r1
 
 	# sets up the GUI
 	def setupGUI(self):
